@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping> <!--Это ключевой тег , который должен быть в каждом XML – фалйе для связывания (mapping). Внутри
+ этого тега мы и конфигурируем наши связи-->
+    <class name="code.Developer" table="HIBERNATE_DEVELOPERS">  <!--Тег <class> используется для того, чтоы указать
+    связь между POJO-классом и таблицей в БД. Имя класса указывается с помощью свойства name, имя таблицы в БД – с
+    помощью свойства table-->
+        <meta attribute="class-description">  <!--Опциональный (необязательный) тег, внутри которого мы можем добавить
+         описание класса-->
+            This class contains developer's details.
+        </meta>
+        <id name="id" type="int" column="ID"><!-- связывает уникальный идентификатор ID в POJO – классе и первичный ключ
+         (primary key) в таблице БД. Свойство name соединяет поле класса со свойством column, которое указывает нам
+         колонку в таблице БД. Свойство type определяет тип связывания (mapping) и используется для конфертации типа
+         данных Java в тип данных SQL-->
+
+            <generator class="native"/> <!--  Этот тег внутри тега <id> используется для того, что генерировать
+            первичные ключи автоматически. Если мы указываем это свойство native, то Hibernate сам выберет алгоритм
+            (identity, hilo, sequence) в зависимости от возможностей БД-->
+        </id>
+        <property name="firstName" column="FIRST_NAME" type="string"/>  <!--Мы используем этот тег для того, чтобы
+        связать (map) конкретное поле POJO – класса с конкретной колонкой в таблице БД. Свойство name указывает поле
+         в классе, в то время как свойство column указывает на колонку в таблице БД. Свойство type указывает тип
+         связывания (mapping) и конвертирует тип данных Java в тип данных SQL-->
+        <property name="lastName" column="LAST_NAME" type="string"/>
+        <property name="specialty" column="SPECIALTY" type="string"/>
+        <property name="experience" column="EXPERIENCE" type="int"/>
+    </class>
+</hibernate-mapping>

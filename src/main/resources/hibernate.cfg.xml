@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+         <hibernate-configuration>
+         <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property> <!--Указываем HIebrnate диалект
+         БД. Hibernate, в своб очередь, генерирует необходимые SQL-запросы (например, org.hibernate.dialect.MySQLDialect,
+          если мы используем MySQL).-->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> <!-- Указываем класс JDBC драйвера-->
+
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/razrabotchiki?serverTimezone=UTC</property><!--Имя БД -->
+             <property name="hibernate.connection.username">root</property> <!--Логин -->
+        <property name="hibernate.connection.password">1234</property><!--Пароль -->
+
+
+        <mapping resource="Developer.hbm.xml" />
+        </session-factory>
+        </hibernate-configuration>
